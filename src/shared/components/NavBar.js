@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
 import './NavBar.scss';
+import SwitchButton from '../../hooks/Switch';
+import { ThemeContext } from '../../hooks/ThemeProvider';
 
 export const NavBar = () => {
+
+  const theme = useContext(ThemeContext);
+  const darkMode = theme.state.darkMode;
   return (
     <nav className='navbar navbar-expand-lg navbar-light bg-light'>
       <div className='container-fluid'>
@@ -22,11 +27,22 @@ export const NavBar = () => {
           <span className='navbar-toggler-icon'></span>
         </button>
         <div className='collapse navbar-collapse' id='navbarNav'>
-          <ul className='navbar-nav'>
+          <ul className='navbar-nav display-flex align-items-center'>
             <li className='nav-item active'>
               <Link className='nav-link' to='/'>
                 <FormattedMessage id='pokemons' />
               </Link>
+            </li>
+            <li className='nav-item active'>
+              <Link className='nav-link' to='/report'>
+                <FormattedMessage id='report' />
+              </Link>
+            </li>
+            <li className='nav-item ms-8'>
+              <SwitchButton/>
+            </li>
+            <li className='nav-item ms-2'>
+              <font color="white">{darkMode ? "English" : "Spanish"}</font>
             </li>
           </ul>
         </div>

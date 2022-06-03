@@ -5,6 +5,13 @@ const english = {
     hello: 'Hello',
     pokemons: 'Pokemons',
     test: 'Web Test',
+    report: "Report",
+    image: "Image",
+    name: "Name",
+    description: "Description",
+    height: "Height",
+    weight:"Weight",
+    type:"Type",
   },
 };
 
